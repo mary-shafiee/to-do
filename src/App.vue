@@ -6,7 +6,10 @@
 
     <v-main>
       <Navbar></Navbar>
-      <router-view></router-view>
+      <v-content class="ml-1 mt-2">
+        <router-view></router-view>
+      </v-content>
+
 
 
     </v-main>

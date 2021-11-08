@@ -1,6 +1,6 @@
 <template>
   <div class="projects">
-   <h1>
+   <h1 class="blue-grey--text text--lighten-1">
      projects
    </h1>
   </div>
