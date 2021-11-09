@@ -4,7 +4,8 @@
 
 
 
-    <v-main>
+    <v-main >
+
       <Navbar></Navbar>
       <v-content class="ml-1 mt-2">
         <router-view></router-view>

@@ -1,8 +1,8 @@
 <template>
-  <v-container class="my-2">
+  <v-container class="ml-2">
     <v-layout column>
-    <h1 class="mb-5">To DO List</h1>
-    <p class="mb-10">Create your project task</p>
+    <h1 class="mb-5 blue-grey--text text--darken-2">To DO List</h1>
+    <h3 class="mb-10 pink--text text--lighten-1">Create your project task</h3>
     <v-divider></v-divider>
 
     <v-flex mx12 md10 class="ma-5" >
@@ -12,38 +12,39 @@
       </vform>
     </v-flex>
     <v-spacer></v-spacer>
-      <v-simple-table >
-        <template v-slot:default>
-          <thead  v-if="tasks[0] !== undefined">
+      <v-simple-table class="blue-grey lighten-4" >
+        <template v-slot:default >
+          <thead  v-if="tasks[0] !== undefined" class="font-weight-bold">
           <tr>
-            <th class="text-center">
+            <th class="text-center headline ">
               TASK
             </th>
-            <th class="text-center">
+            <th class="text-center headline">
               STATUS
             </th>
-            <th class="text-center">
+            <th class="text-center headline" >
               EDIT
             </th>
-            <th class="text-center">
+            <th class="text-center headline">
               DELETE
             </th>
           </tr>
           </thead>
-          <tbody>
+          <tbody >
           <tr
               v-for="(task , index) in tasks"
               :key="index"
+              :class="`pa-3 task ${task.status}`"
           >
             <td class="text-center">{{ task.name }}</td>
             <td class="text-center"><span @click="changeStatus(index)" class="pointer">
               {{ task.status }}</span></td>
             <td class="text-center"><v-icon class="pointer" @click="ediTask(index)">
-              edit
+              mdi-more
             </v-icon>
             </td>
             <td class="text-center"><v-icon class="pointer" @click="deleteTask(index)">
-              trash
+              mdi-delete
             </v-icon>
             </td>
 
@@ -107,14 +108,19 @@ export default {
 </script>
 
 <style scoped>
-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-
+.pa-3 task in-progress{
+  border-left: 10px solid #306cfc;
 }
+.pa-3 task wait{
+  border-left: 10px solid orange;
+}
+.pa-3 task done{
+  border-left: 10px solid green;
+}
+
 #input-text{
+  background-color: antiquewhite;
+  padding: 10px;
   border: none;
   width: 30vw;
   height: 40px;
